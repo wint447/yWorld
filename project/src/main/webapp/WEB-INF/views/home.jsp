@@ -65,7 +65,7 @@
 						<img src="resources/image/index/note.png">
 						<h5>웹페이지 화면을 내맘대로!</h5>
 							<p>취향따라 목적따라 분류하고 웹페이지의
-							모든 요소를 원하는대로 수정할 수 있습니다.</p>
+							모든 요소를 원하는대로 수정할 수 있습니다!!!</p>
 					</div>
 				</div>
 				<div class="col-sm-6 col-md-4">
