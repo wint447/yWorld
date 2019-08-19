@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- db.properties는  DB 접속과 관련된 정보를 보관하고 있다. 이를  읽어와 서버에 적재한다. -->
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location">
+			<value>classpath:properties/db.properties</value>
+		</property>
+	</bean>
+
+	<!-- db.properties의 설정 값을 읽어서 setting -->
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="${driver}" />
+		<property name="url" value="${url}" />
+		<property name="username" value="${user}" />
+		<property name="password" value="${password}" />
+	</bean>
+
+	<!-- 트랙잭션 관리를 위한 빈설정 -->
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<!--SqlSessionFactory 설정 : dataSource를 참조, mybatis-config.xml 경로설정-->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="configLocation" value="classpath:mybatis-config.xml" />
+		<!-- mapperLocations 속성을 정의해줌으로써, mybatis.config 파일에서 mapper의 경로를 지정해 줄 필요가 사라진다. -->
+		<!-- <property name="mapperLocations" value="classpath:mappers/**/*Mapper.xml"/> --> 
+	</bean>
+
+	<!-- sqlSession, id 속성은 클래스명, class 속성은 클래스의 위치를 나타내고 있다. -->
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg index="0" name="sqlSessionFactory" ref="sqlSessionFactory" />
+	</bean>
+
+	<!-- file upload를 위한 bean 설정 -->
+	<bean name="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="10485760"></property>
+	</bean>	
+</beans>

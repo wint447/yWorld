@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- web.xml
+web.xml 파일은 웹 애플리케이션의 실행 환경에 관련된 각종 설정 정보가 담겨있는 파일이다. 
+SUN에서 정해놓은 규칙에 맞게 작성해야 하며 모든 WAS에 대하여 작성 방법이 동일하다. -->
+
+<!-- 브라우저의 요청을 가장 먼저 처리하는 곳이 web.xml이다. 필터를 정의한다면, 가장 먼저 반응을 하여 특정 작업을 처리하게 된다. 
+보통 필터에서 하는 대표적인 처리가 인코딩 처리이다. web.xml 중간을 보면 DispatcherServlet이라고 되어있는 것을 볼 수 있다. 
+브라우저의 요청이 오면 먼저 Controller로 요청이 넘어가기 전에 DispatcherServlet이 그 요청을 가로챈다. 
+가로챈 요청을 아래의 <init-param>부분에 있는 servlet-context.xml로 전달한다. -->
+
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee https://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+	<!-- The definition of the Root Spring Container shared by all Servlets and Filters -->
+	<!-- DataSource, MyBatis Bean을 생성해준다. -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/WEB-INF/spring/root-context.xml</param-value>
+	</context-param>
+	
+	<!-- ContextLoaderListener 설정 -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+
+	<!-- Processes application requests, 사용자 요청에 응답하기 위한 객체 DispatcherServlet,
+	DispatcherServlet의 설정파일 servlet-context.xml을 호출-->
+	<servlet>
+		<servlet-name>appServlet</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>
+				/WEB-INF/spring/appServlet/servlet-context.xml
+				<!-- 웹 소켓 생성에 대한 처리 -->
+				<!-- ,/WEB-INF/spring/appServlet/websocket-context.xml -->
+			</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+		<!-- servlet 3.0부터 지원하기 시작한 비동기 관련 설정이다. -->
+		<!-- <async-supported>true</async-supported> -->
+	</servlet>
+		
+	<servlet-mapping>
+		<servlet-name>appServlet</servlet-name>
+		<!-- 다른 방식의 요청을 허락하지 않는다. 예를 들어 *.do로 선언할 경우 확장자가 .do인 요청만을 허락하며,
+		.html의 직접적인 호출등은 허락되지 않는다. 현재 값은 모든 요청을 DispatcherServlet이 받게 된다.-->
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+	
+	<!-- encoding filter, 스프링은 웹 요청과 응답에 대한 인코딩 처리를 위해 CharacterEncodingFilter를 제공함. -->
+	<filter>
+		<filter-name>encodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+		<!-- request에 대한 인코딩만 처리하도록 되어있는데, 응답 데이터까지 인코딩을 처리하거나 인코딩 설정을 강제하는 경우에는 
+		다음과 같이 추가적으로 forceEncoding값을 true로 적용해준다. -->
+		<init-param>
+			<param-name>forceEncoding</param-name>
+			<param-value>true</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>encodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<filter>
+		<filter-name>hiddenHttpMethodFilter</filter-name>
+		<filter-class>org.springframework.web.filter.HiddenHttpMethodFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>hiddenHttpMethodFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<!-- 이중 로그인을 막기 위한 리스너 클래스와, error 페이지에 대한 설정 또한 여기에서 정의하게 된다. -->
+</web-app>
