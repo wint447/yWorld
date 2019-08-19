@@ -35,7 +35,7 @@ CREATE SEQUENCE webCode_Sequence;
 
 -- 생성 웹 사이트의 회원가입을 위한 DB
 CREATE TABLE webSiteMemberDB (
-	id					VARCHAR2(20) NOT NULL -- id
+	id					VARCHAR2(50) NOT NULL -- id
 	, siteId			NUMBER NOT NULL -- site
 	, password			VARCHAR2(20) NOT NULL -- 비밀번호
 	, authority			VARCHAR2(10) NOT NULL -- 권한
@@ -45,6 +45,8 @@ CREATE TABLE webSiteMemberDB (
 	, tel				VARCHAR2(15) -- 전화번호
 	, address			VARCHAR2(50) -- 주소
 	, grade				NUMBER -- 등급
+	, likes				NUMBER -- 추천수
+	, hits				NUMBER -- 조회수
 	, registration_date	DATE DEFAULT SYSDATE -- 등록일
 	, login_date		DATE DEFAULT SYSDATE -- 최근 로그인
 	, point				NUMBER DEFAULT 0 NOT NULL -- 포인트
