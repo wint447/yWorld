@@ -394,9 +394,14 @@ footer {
 	/* /SERVICE */
 
 	/* REGIST */
-	#registration {
+	#regist-area {
 		background-size: 250%;
-		background-position: 50% 60px;
+		background-position: 150% 60px;
+		position: absolute;
+		left: 50%;
+		/* 
+		transform: transitionX(50%);
+		 */
 	}
 	/* /REGIST */
 }
