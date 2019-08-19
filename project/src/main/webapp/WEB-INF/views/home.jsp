@@ -8,49 +8,21 @@
 	<!-- HEAD 태그 공통 부분  -->
 	<%@ include file="include/commons/head.jsp"%>
 	<!-- /HEAD 태그 공통 부분  -->
-</head>
+<link rel="stylesheet" type="text/css" href="resources/css/pageHome.css" />
 
+</head>
 <body>
 	<!-- Header Area -->
 	<header class="header">
-		<div class="container">
-			<div id="header-logo" class="text-center">
-				<span id="big-headline" class="text-white">PAGE</span>
-				<img class="border border-white" src="resources/image/index/people.png">
-					<span id="sub-headline" class="text-white">우리가 만드는 우리들의 페이지</span>
-					<a href="#" onclick="move_scroll('registration')">START!</a>
-			</div>
-		</div>
+	<div id="homeCover">
+		<div><h1><span>Y</span><span>E</span><span>L</span><span>L</span><span>O</span><span>W</span>
+				 <span> </span><span>W</span><span>O</span><span>R</span><span>L</span><span>D</span><span>&nbsp </span><span>!</span></h1><br>
+		<div class="page">
+ 		 <button class="fun-btn"> <a href="#" onclick="move_scroll('loginPage')" style="text-decoration:none; color: white; font-size: large;">LET'S GO !!</a></button>
+		</div></div><br></div><br>
 	</header>
 	<!-- /Header Area -->
 
-	<!-- Navigation Area -->
-	<nav id="navigation" class="navbar navbar-dark">
-		<div class="row">
-			<div class="col-2 col-lg-1">
-				<span id="nav-logo" class="navbar-brand">PAGE</span>
-			</div>
-			<div class="col-10 col-lg-4">
-				<ul class="nav justify-content-end">
-					<li class="nav-item">
-					<a class="nav-link text-muted" href="#">맨위로</a>
-					</li>
-					<c:if test="${not empty login}">
-						<li class="nav-item">
-						<a class="nav-link text-muted" href="${path }/page">이어하기</a>
-						</li>
-					</c:if>
-					<li class="nav-item">
-					<a class="nav-link text-muted" href="#" onclick="login()">새로하기</a>
-					</li>
-					<li class="nav-item">
-					<a class="nav-link text-muted" href="#" onclick="move_scroll('registration')">회원가입</a>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</nav>
-	<!-- /Navigation Area -->
 
 	<!-- Content Area -->
 	<!-- Services Area -->
@@ -90,7 +62,7 @@
 	<!-- /Services Area -->
 
 	<!-- Registration Area -->
-	<section id="registration">
+	<section id="loginPage">
 		<div id="opacity-wrap">
 			<div id="regist-area" class="container">
 				<h2 class="block_title">Join Us!!!</h2>

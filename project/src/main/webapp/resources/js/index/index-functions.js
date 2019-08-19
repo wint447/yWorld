@@ -127,9 +127,9 @@ function login() {
 /* 스크롤 이동 이벤트 */
 function move_scroll(to_where) {
 
-	if(to_where=="registration") {
+	if(to_where=="loginPage") {
 
-		$('html, body').animate({scrollTop : $("[id=registration]").offset().top-30}, 400);
+		$('html, body').animate({scrollTop : $("[id=loginPage]").offset().top-30}, 400);
 	}
 }
 /* 스크롤 이동 이벤트 */
