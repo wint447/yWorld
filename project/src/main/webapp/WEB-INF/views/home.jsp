@@ -43,19 +43,25 @@
                <div class="col-sm-6">
                   <form id="insert-form" role="form" action="user/register" method="post">
                      <!-- 이메일 -->
-                     <div class="form-group">
-                        <div class="col-8" style="padding-right: 0; padding-left: 0;">
-                         	 ＊ e-mail <input type="email" class="form-control" id="your_email"
-                              name="id" placeholder="Enter your email">
-                        </div>
-                     </div>
+	                     <div class="form-group">
+	                        <div class="col-8" style="padding-right: 0; padding-left: 0;">
+	                         	 ＊ e-mail <input type="email" class="form-control" id="your_email"
+	                              name="id" placeholder="Enter your email">
+		                        <!--경고문 -->
+		                        <div id="idCheck1"></div>
+	                        </div>
+	                     </div>
+	                     
                      <!-- 비밀번호 -->
-                     <div class="form-group row">
-                        <div class="col-6" style="padding-right: 0">
-                           	＊ password <input type="text" class="form-control" id="user_password"
-                              name="password" placeholder="Enter password">
-                        </div>
-                     </div>
+	                     <div class="form-group row">
+	                        <div class="col-6" style="padding-right: 0">
+	                           	＊ password <input type="text" class="form-control" id="user_password"
+	                              name="password" placeholder="Enter password">
+		                        <!--경고문 -->
+		                        <div id="pwCheck1"></div>
+	                        </div>
+	                     </div>
+                     
                      <!-- 회원가입 동적 생성 -->
                      <div id="change" style="display: none">
                         <!-- 비밀번호 확인 -->
@@ -63,18 +69,23 @@
                            <div class="col-6" style="padding-right: 0">
                             	 ＊ password again <input type="text" class="form-control" id="user_password_again"
                                  placeholder="Enter password again">
-                           </div>
+	                            <!--경고문 -->
+	                           <div id="pwCheckAgain"></div>
+                           </div>                 
                         </div>
+                      
 
                         <!-- 닉네임 -->
                         <div class="form-group row">
                            <div class="col-6" style="padding-right: 0">
                              	＊ nickname <input type="text" class="form-control" id="user_name"
-                                 name="nickname" placeholder="Enter your name">
+                                 name="nickName" placeholder="Enter your name">
+	                           <!--경고문 -->
+	                           <div id="nickCheck"></div>
                            </div>
                         </div>
                      </div>
-
+ 
                      <!--  form 태그 내의 button 태그의 default 동작은 submit이다 -->
                      <div class="form-group row">
 	                        <div class="col-4" style="padding-right: 0;">
@@ -82,16 +93,15 @@
 	                        </div>
 	                        <div class="col-4" style="padding-right: 0">
 	                        <button type="button" class="btn btn-info" id="login-select-button" style="width:100%;" onclick="goToSignIn()"> SignIn</button>
-	                       </div>
-                       		<div id="loginBtn" class="col-8" style="text-align: center;"><button id="login-button" class="btn btn-warning" onclick="location.href='page'"> LET'S GO !!</button></div>
+	                      	</div>
+                       		<div id="loginBtn" class="col-8" style="text-align: center;"><button id="login-button" class="btn btn-warning" > 로그인 !!</button></div>
                      </div>
                      
                   </form>
+                 </div>
                </div>
             </div>
             
-         </div>
- 
    </section>  
 	<!-- /Registration Area -->
 

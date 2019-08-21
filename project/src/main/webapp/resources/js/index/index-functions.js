@@ -65,6 +65,11 @@ function checking(){
 	$('#idCheck').css('transition', '0.3s');
 	$('#pwCheck').hide(0);//password
 	$('#pwCheck').css('transition', '0.3s');
+	$('#pwCheckAgain').hide(0);//passwordAgain
+	$('#pwCheckAgain').css('transition', '0.3s');
+	$('#nickCheck').hide(0);//nickCheck
+	$('#nickCheck').css('transition', '0.3s');
+	
 }
 
 
@@ -72,6 +77,13 @@ function checking(){
 function nameCheck(){
 
 	var name = $('#user_name').val();
+	
+	if(name.length==0){
+		$('#nickCheck').fadeOut(500);
+		return;
+	}
+		$('#nickCheck').fadeIn(500);
+	
 	if (name.length >= 1) {
 		$.ajax({
 			url:'user/nameCheck',
@@ -166,6 +178,13 @@ function pwCheck(){
 function pwAgain(){
 	var password = $('#user_password').val();
 	var passwordAgain = $('#user_password_again').val();
+	
+	if(passwordAgain.length==0){
+		$('#pwCheckAgain').fadeOut(500);
+		return;
+	}
+		$('#pwCheckAgain').fadeIn(500);
+	
 	
 	if (password == passwordAgain) {
 		$('#pwCheckAgain').html('일치합니다');
