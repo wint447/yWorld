@@ -13,4 +13,13 @@ public class PageController {
 		return "page/page";
 	}
 	
+	@RequestMapping(value = "/pageManagement", method = RequestMethod.GET)
+	public String pageMangement() {
+		return "user/pageManagement";
+	}
+		
+	@RequestMapping(value = "/toPrivate", method = RequestMethod.GET)
+	public String toPrivate() {
+		return "user/private";
+	}
 }
