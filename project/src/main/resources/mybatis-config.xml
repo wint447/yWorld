@@ -39,8 +39,8 @@
     </typeAliases>
  	
  	<mappers>
+		<mapper resource="mappers/user/memberMapper.xml" />
  	<!-- 매퍼 경로 지정. root-context에서 설정 가능하다.
-		<mapper resource="MemberMapper.xml" />
 		<mapper resource="BoardMapper.xml" />
 		<mapper resource="ReplyMapper.xml" />		
 	-->

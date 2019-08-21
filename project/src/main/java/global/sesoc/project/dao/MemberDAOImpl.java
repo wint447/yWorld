@@ -13,20 +13,39 @@ public class MemberDAOImpl implements MemberDAO {
 	@Autowired
 	SqlSession sqlSession;
 	
+	//로그인
 	@Override
 	public MemberVO login(MemberVO memberVO) throws Exception {
 		MemberMapper mapper = sqlSession.getMapper(MemberMapper.class);
 		MemberVO result = mapper.login(memberVO);
-		return null;
+		return result;
 	}
 
+	//회원가입
 	@Override
 	public int register(MemberVO memberVO) throws Exception {
 		MemberMapper mapper = sqlSession.getMapper(MemberMapper.class);
+		System.out.println(memberVO);
 		int result = mapper.register(memberVO);
 		return result;
 	}
 
+	//아이디 중복확인
+	@Override
+	public MemberVO idCheck(String searchID) throws Exception {
+		MemberMapper mapper = sqlSession.getMapper(MemberMapper.class);
+		MemberVO result = mapper.idCheck(searchID);
+		return result;
+	}
+	
+	//닉네임 중복확인
+	@Override
+	public MemberVO nameCheck(String searchName) throws Exception {
+		MemberMapper mapper = sqlSession.getMapper(MemberMapper.class);
+		MemberVO result = mapper.nameCheck(searchName);
+		return result;
+	}
+	
 	@Override
 	public int leaveAccount(MemberVO memberVO) throws Exception {
 		MemberMapper mapper = sqlSession.getMapper(MemberMapper.class);

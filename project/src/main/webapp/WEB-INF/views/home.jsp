@@ -32,10 +32,6 @@
 	<!-- /Header Area -->
 
 
-	<!-- Content Area -->
-	<!-- Services Area -->
-
-	<!-- /Services Area -->
 
 	<!-- Registration Area -->
 	<section id="loginPage">
@@ -44,12 +40,14 @@
 
                <!-- 로그인 입력 창 -->
                <div class="col-sm-6">
-                  <form id="insert-form" role="form" action="user/register" method="post">
+                  <form id="insert-form" role="form" action="user/register" method="post" onsubmit="return blankCheck()">
                      <!-- 이메일 -->
                      <div class="form-group">
                         <div class="col-8" style="padding-right: 0; padding-left: 0;">
                            <input type="email" class="form-control" id="your_email"
                               name="id" placeholder="Enter your email">
+                        <!--경고문 -->
+                        <div id="idCheck1"></div>
                         </div>
                      </div>
                      <!-- 비밀번호 -->
@@ -57,6 +55,9 @@
                         <div class="col-6" style="padding-right: 0">
                            <input type="text" class="form-control" id="user_password"
                               name="password" placeholder="Enter password">
+                        <!--경고문 -->
+                        <div id="pwCheck1"></div>
+
                         </div>
                      </div>
                      <!-- 회원가입 동적 생성 -->
@@ -66,6 +67,8 @@
                            <div class="col-6" style="padding-right: 0">
                               <input type="text" class="form-control" id="user_password_again"
                                  placeholder="Enter password again">
+                           <!--경고문 -->
+                           <div id="pwCheckAgain"></div>
                            </div>
                         </div>
 
@@ -73,7 +76,9 @@
                         <div class="form-group row">
                            <div class="col-6" style="padding-right: 0">
                               <input type="text" class="form-control" id="user_name"
-                                 name="nickname" placeholder="Enter your name">
+                                 name="nickName" placeholder="Enter your nickName">
+                           <!--경고문 -->
+                           <div id="nickCheck"></div>
                            </div>
                         </div>
                      </div>
@@ -86,7 +91,7 @@
 	                        <div class="col-6" style="padding-right: 0">
 	                         <button type="button" id="login-select-button" style="width:100%;" onclick="goToSignIn()">SignIn</button>
 	                       </div>
-                       		<div id="loginBtn" class="col-12" style="text-align: center;"><button id="login-button" class="btn btn-warning" onclick="location.href='page'">로그인!</button></div>
+                       		<div id="loginBtn" class="col-12" style="text-align: center;"><button id="login-button" class="btn btn-warning" >로그인!</button></div>
                      </div>
                      
                   </form>

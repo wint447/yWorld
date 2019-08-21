@@ -6,8 +6,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import global.sesoc.project.dao.MemberDAO;
 import global.sesoc.project.vo.MemberVO;
@@ -26,17 +28,60 @@ public class MemberController {
 	 * @param memberVO
 	 * */
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
-	public String register(MemberVO memberVO) {
+	public String register(MemberVO memberVo) throws Exception {
+		System.out.println(memberVo);
+		int result = memberDAO.register(memberVo);
 		return "redirect:/";
 	}
 	
 	/**
+	 * 아이디 중복 확인
+	 * */
+	@ResponseBody
+	@RequestMapping(value = "/idCheck", method = RequestMethod.POST)
+	public String idCheck(String searchID) throws Exception {
+		System.out.println(searchID);
+		MemberVO result = memberDAO.idCheck(searchID);
+		
+		if(result != null){
+			return "false";
+		}
+		else return "true";
+	}
+	
+	/**
+	 * 닉네임 중복 확인
+	 * */
+	@ResponseBody
+	@RequestMapping(value = "/nameCheck", method = RequestMethod.POST)
+	public String nameCheck(String searchName) throws Exception {
+		System.out.println(searchName);
+		MemberVO result = memberDAO.nameCheck(searchName);
+		
+		if(result != null){
+			return "false";
+		}
+		else return "true";
+	}
+	
+	
+	/**
 	 * 로그인 처리
 	 * @param session, memberVO
+	 * 
 	 * */
+	
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String login(HttpSession session, MemberVO memberVO) {
-		return "redirect:/";
+	public String login(HttpSession session, MemberVO memberVO) throws Exception {
+		System.out.println(memberVO);
+		MemberVO result = memberDAO.login(memberVO);
+		if (result != null) {
+			session.setAttribute("loginID",result);
+		} 
+		else {
+			return "user/auto_loginPost";
+		}
+		return "redirect:/pageManagement";
 	}
 
 	/**

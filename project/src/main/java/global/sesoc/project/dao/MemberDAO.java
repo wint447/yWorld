@@ -12,7 +12,13 @@ public interface MemberDAO {
 
     // 회원가입 처리
     int register(MemberVO memberVO) throws Exception;
+    
+    // 회원가입_아이디_중복 처리
+    MemberVO idCheck(String searchID) throws Exception;
 
+    // 회원가입_닉네임_중복 처리
+    MemberVO nameCheck(String searchName) throws Exception;
+    
     // 회원탈퇴 처리
     int leaveAccount(MemberVO memberVO) throws Exception;
     
@@ -21,4 +27,7 @@ public interface MemberDAO {
 
     // 회원정보 수정처리
     int memberInfoUpdate(MemberVO memberVO) throws Exception;
+
+	
+
 }
