@@ -85,24 +85,10 @@ public class MemberController {
 	}
 
 	/**
-	 * 회원정보 수정
+	 * 개인정보 수정
 	 * */
-	@RequestMapping(value = "/update", method = RequestMethod.POST)
-	public String memberInfoUpdate(HttpSession session, MemberVO memberVO) {
-		return "redirect:/";
-	}
-	/**
-	 * 회원탈퇴 처리
-	 * */
-	@RequestMapping(value = "/leaveaccount", method = RequestMethod.POST)
-	public String leaveAccount(MemberVO memberVO) {
-		return "redirect:/";
-	}
-	/**
-	 * 비밀번호 찾기
-	 * */
-	@RequestMapping(value = "/getpassword", method = RequestMethod.POST)
-	public String getmemberPw(HttpSession session, MemberVO memberVO) {
-		return "redirect:/";
+	@RequestMapping(value = "/toPrivate", method = RequestMethod.GET)
+	public String toPrivate() {
+		return "user/private";
 	}
 }

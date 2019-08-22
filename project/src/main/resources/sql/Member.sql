@@ -71,3 +71,12 @@ CREATE TABLE webSiteBoardDB (
 
 -- 생성 웹사이트의 BoardNUM을 위한 Sequence
 CREATE SEQUENCE webSiteBoard_Sequence;
+
+-- 템플릿을 위한 DB
+CREATE TABLE Template (
+	-- 템플릿 번호
+	-- 템플릿 이름
+	-- 템플릿 css
+	-- 템플릿 js
+	-- 템플릿 html
+)
