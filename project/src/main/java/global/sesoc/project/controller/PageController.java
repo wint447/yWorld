@@ -18,7 +18,7 @@ public class PageController {
 	
 	@RequestMapping(value = "/pageManagement", method = RequestMethod.GET)
 	public String pageMangement() {
-		return "/pageManagement";
+		return "pageManagement";
 	}
 		
 	@RequestMapping(value = "/editpage", method = RequestMethod.GET)

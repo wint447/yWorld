@@ -151,8 +151,8 @@ function start() {
 			<!-- /상단 네비게이션 바 -->
 
 			<div class="container-fluid" style="padding:0px;">
-				<!-- 유저별 페이지 정보 상이 -->
-				<iframe src="editpage" name="" style="width:100%;">iframe이 지원되지 않는 브라우저;</iframe>
+				<!-- 유저별 페이지 정보 상이, vh는 view-port height를 의미하는 단위로 사용자가 보는 스크린을 100 기준으로 재는 단위이다. vw도 존재한다. -->
+				<iframe src="editpage" name="" style="width:100%; height: 100vh; boarder:none;">iframe이 지원되지 않는 브라우저;</iframe>
 
 			</div>
 			<!-- /컨텐츠 레이아웃 -->
