@@ -35,7 +35,7 @@
 			기본 요소 추가</a>
 		<!-- onclick="Add_PlainText();" -->
 		<div id="primary-components" class="collapse list-group list-group-flush">
-			<a id="text" href="#" onmousedown="Add_PlainText();"
+			<a id="text" href="#" onmousedown=""
 				class="list-group-item list-group-item-action bg-white">텍스트</a>
 			<a href="#" onclick=""
 				class="list-group-item list-group-item-action bg-white">이미지</a>
@@ -43,7 +43,7 @@
 				class="list-group-item list-group-item-action bg-white">상자</a>
 			<a href="#" onclick=";"
 				class="list-group-item list-group-item-action bg-white">버튼</a>
-			<a href="#" onclick="Add_Table();"
+			<a href="#" onclick=""
 				class="list-group-item list-group-item-action bg-white">테이블</a>
 			<a href="#" onclick=""
 				class="list-group-item list-group-item-action bg-white">동영상</a>
@@ -57,15 +57,15 @@
 			aria-expanded="false" aria-controls="collapseExample">
 			페이지 전체 기능 요소</a>
 		<div id="activity-components" class="collapse list-group list-group-flush">
-		<a href="#" onclick="Add_Board();"
+		<a href="#" onclick=";"
 			class="list-group-item list-group-item-action bg-white">게시판</a>
-		<a href="#" onclick="Add_Chat();"
+		<a href="#" onclick=""
 			class="list-group-item list-group-item-action bg-white">채팅</a>
-		<a href="#" onclick="Add_Paint();"
+		<a href="#" onclick=""
 			class="list-group-item list-group-item-action bg-white">그림판</a>
-		<a href="#" onclick="Add_Map();"
+		<a href="#" onclick=""
 			class="list-group-item list-group-item-action bg-white">지도</a>
-		<a href="#" onclick="Add_Calendar();"
+		<a href="#" onclick=""
 			class="list-group-item list-group-item-action bg-white">캘린더</a>
 		</div>
 	</div>

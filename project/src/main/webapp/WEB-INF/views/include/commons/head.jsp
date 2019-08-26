@@ -55,8 +55,4 @@
 	<!-- CSS 불러오기 -->
 	<link href="${path}/resources/css/index/index.css" rel="stylesheet">
 
-	<!-- summerNote -->
-	<link href="${path}/resources/libs/summernote/dist/summernote.css" rel="stylesheet">
-	<script src="${path}/resources/libs/summernote/dist/summernote.js"></script>
-	<script src="${path}/resources/libs/summernote/lang/summernote-ko-KR.js"></script>
 </head>

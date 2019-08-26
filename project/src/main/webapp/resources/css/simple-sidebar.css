@@ -3,13 +3,13 @@
  * Copyright 2013-2019 Start Bootstrap
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-simple-sidebar/blob/master/LICENSE)
  */
- 
+
 .collapsing {
    -webkit-transition: none;
    transition: none;
    display: none;
 }
- 
+
 /* 커스터 마이즈 설정 */
 body {
 
