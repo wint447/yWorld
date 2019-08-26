@@ -24,6 +24,13 @@ public interface MemberMapper {
 
     // 회원정보 수정처리
 	public abstract int userInfoUpdate(MemberVO memberVO) throws Exception;
+	
+	//이메일 인증
+	public int updateAuthkey(MemberVO uVO) throws Exception;
+	//이메일 인증 확인
+	public void updateAuthstatus(MemberVO uVO) throws Exception;
+	//이메일 인증 상태 가져오기
+	public int gStatus(MemberVO uVO) throws Exception;
 
 
 }

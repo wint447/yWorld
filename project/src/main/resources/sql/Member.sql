@@ -5,6 +5,8 @@ CREATE TABLE memberDB (
     , nickname          VARCHAR2(20)   NOT NULL -- 닉네임
     , cert				VARCHAR2(1)    DEFAULT 'N' NOT NULL -- 이메일 인증 여부
     , payment     		VARCHAR2(1)   DEFAULT 'N' NOT NULL -- 결제 여부
+    , authCode          VARCHAR2(200)
+    , authstatus        NUMBER default 0 
     
     , CONSTRAINT Member_Cert_CK CHECK (cert IN('Y', 'N'))
     , CONSTRAINT Member_Payment_CK CHECK (payment IN('Y', 'N'))

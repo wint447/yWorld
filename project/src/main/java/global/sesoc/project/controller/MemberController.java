@@ -11,8 +11,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+
 import global.sesoc.project.dao.MemberDAO;
+import global.sesoc.project.service.UserServiceImpl;
 import global.sesoc.project.vo.MemberVO;
+
+
+
 
 @Controller
 @RequestMapping("user")
@@ -22,6 +27,10 @@ public class MemberController {
 	
 	@Autowired
 	MemberDAO memberDAO;
+
+	
+	@Autowired
+	UserServiceImpl userService;
 	
 	/**
 	 * 회원가입 Form의 내용을 받아, 회원가입 처리의 역할을 수행한다.
@@ -30,8 +39,24 @@ public class MemberController {
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public String register(MemberVO memberVo) throws Exception {
 		System.out.println(memberVo);
-		int result = memberDAO.register(memberVo);
+		/*
+		int result = memberDAO.register(memberVo);*/
+		
+		userService.create(memberVo);
+		
 		return "redirect:/";
+	}
+	
+	@RequestMapping(value="joinConfirm", method=RequestMethod.GET)
+	public String emailConfirm(MemberVO uVO, Model model) throws Exception {
+			// authstatus를 1로,, 권한 업데이트2
+		userService.updateAuthstatus(uVO);
+		MemberVO result = memberDAO.idCheck(uVO.getId());
+		
+		
+		model.addAttribute("auth_check", 1);
+		model.addAttribute("user", result);
+		return "joinPost";
 	}
 	
 	/**

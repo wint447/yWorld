@@ -66,4 +66,28 @@ public class MemberDAOImpl implements MemberDAO {
 		int result = mapper.userInfoUpdate(memberVO);
 		return result;
 	}
+	
+	//이메일 인증 DAO
+	@Override
+	public int updateAuthkey(MemberVO uVO) throws Exception{
+		MemberMapper mapper = sqlSession.getMapper(MemberMapper.class);
+		int result = mapper.updateAuthkey(uVO);
+		
+		return result;
+	}
+	
+	@Override
+	public void updateAuthstatus(MemberVO uVO) throws Exception{
+		MemberMapper mapper = sqlSession.getMapper(MemberMapper.class);
+		mapper.updateAuthstatus(uVO);
+		
+	}
+	
+	@Override
+	public int gStatus(MemberVO uVO) throws Exception{
+		MemberMapper mapper = sqlSession.getMapper(MemberMapper.class);
+		int result = mapper.gStatus(uVO);
+		
+		return result;
+	}
 }

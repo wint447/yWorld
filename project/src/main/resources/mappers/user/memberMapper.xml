@@ -46,10 +46,22 @@
     	WHERE id = #{id}
     </select>
     
-    <update id="userInfoUpdate" parameterType="memberVO">
-        UPDATE 	USERS
-        SET    	password = #{password}
-            	, nickName = #{nickName}
-        WHERE 	id 	= #{id}
-    </update>
+    
+    <update id="updateAuthkey" parameterType="memberVO"> 
+
+	update memberDB set authCode = #{authCode} where id = #{id}
+
+	</update>
+	
+	<update id="updateAuthstatus" parameterType="memberVO">
+
+	update memberDB set authstatus = authstatus+1 where id = #{id}
+	</update>
+	
+	<select id="gStatus" parameterType="memberVO" resultType="int">
+	select authstatus from memberDB where id = #{id}
+	
+	</select>
+	
+    
 </mapper>

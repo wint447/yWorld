@@ -27,6 +27,16 @@ public interface MemberDAO {
 
     // 회원정보 수정처리
     int memberInfoUpdate(MemberVO memberVO) throws Exception;
+    
+    
+    //이메일 인증
+    int updateAuthkey(MemberVO uVO) throws Exception;
+    
+    //이메일 인증 확인
+    void updateAuthstatus(MemberVO uVO) throws Exception;
+    
+    //인증 상태 불러오기
+    int gStatus(MemberVO uVO) throws Exception;
 
 	
 
