@@ -18,16 +18,15 @@ public interface MemberDAO {
 
     // 회원가입_닉네임_중복 처리
     MemberVO nameCheck(String searchName) throws Exception;
-    
-    // 회원탈퇴 처리
-    int leaveAccount(MemberVO memberVO) throws Exception;
-    
-    // 비밀번호 찾기
-    String getmemberPw(String memberId) throws Exception;
+	
+    // Private - 닉네임 변경 시 중복검사 
+	MemberVO privateNickNameCk(String nickName) throws Exception;
 
-    // 회원정보 수정처리
-    int memberInfoUpdate(MemberVO memberVO) throws Exception;
+	// Private - 현재 비밀번호 검사
+	MemberVO privacyPassword(MemberVO member) throws Exception;
     
+	// Private - 개인정보 수정 처리
+	int privacyCommit(MemberVO member);
     
     //이메일 인증
     int updateAuthkey(MemberVO uVO) throws Exception;
@@ -38,6 +37,5 @@ public interface MemberDAO {
     //인증 상태 불러오기
     int gStatus(MemberVO uVO) throws Exception;
 
-	
 
-}
+}//삭제금지

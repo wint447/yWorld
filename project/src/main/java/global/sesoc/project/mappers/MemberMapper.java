@@ -16,14 +16,14 @@ public interface MemberMapper {
 	// 닉네임중복 처리
 	public abstract MemberVO nameCheck(String searchName);
 
-	// 회원탈퇴 처리
-	public abstract int leaveAccount(MemberVO memberVO) throws Exception;
-    
-    // 비밀번호 찾기
-	public abstract MemberVO getUserPw(String id) throws Exception;
+	// private - nickName 중복 검사
+	public MemberVO privateNickName(String nickName);
 
-    // 회원정보 수정처리
-	public abstract int userInfoUpdate(MemberVO memberVO) throws Exception;
+	// private - 현재 비밀번호 확인
+	public MemberVO privacyPassword(MemberVO member);
+
+	// private - 개인정보 수정 처리
+	public abstract int privacyCommit(MemberVO member);
 	
 	//이메일 인증
 	public int updateAuthkey(MemberVO uVO) throws Exception;
@@ -31,6 +31,6 @@ public interface MemberMapper {
 	public void updateAuthstatus(MemberVO uVO) throws Exception;
 	//이메일 인증 상태 가져오기
 	public int gStatus(MemberVO uVO) throws Exception;
+		
 
-
-}
+}//삭제금지

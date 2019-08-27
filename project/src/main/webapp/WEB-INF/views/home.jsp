@@ -55,7 +55,7 @@
                      <!-- 비밀번호 -->
 	                     <div class="form-group row">
 	                        <div class="col-6" style="padding-right: 0">
-	                           	＊ password <input type="text" class="form-control" id="user_password"
+	                           	＊ password <input type="password" class="form-control" id="user_password"
 	                              name="password" placeholder="Enter password">
 		                        <!--경고문 -->
 		                        <div id="pwCheck1"></div>
@@ -67,7 +67,7 @@
                         <!-- 비밀번호 확인 -->
                         <div class="form-group row">
                            <div class="col-6" style="padding-right: 0">
-                            	 ＊ password again <input type="text" class="form-control" id="user_password_again"
+                            	 ＊ password again <input type="password" class="form-control" id="user_password_again"
                                  placeholder="Enter password again">
 	                            <!--경고문 -->
 	                           <div id="pwCheckAgain"></div>
@@ -129,4 +129,3 @@
 </body>
 </body>
 </html>
-

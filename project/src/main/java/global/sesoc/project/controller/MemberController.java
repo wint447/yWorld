@@ -106,14 +106,55 @@ public class MemberController {
 		else {
 			return "user/auto_loginPost";
 		}
-		return "redirect:/pageManagement";
+		return "redirect:/page/pageManagement";
 	}
-
 	/**
-	 * 개인정보 수정
-	 * */
-	@RequestMapping(value = "/toPrivate", method = RequestMethod.GET)
-	public String toPrivate() {
-		return "user/private";
+	* PageController 내용 - 현선
+	*
+	* 01.- 개인정보관리내용
+	* -----------------------------------------------------------------------------
+	*/
+		
+		
+	// 01.개인정보관리 - 닉네임 중복검사 (ajax사용)
+	@ResponseBody
+	@RequestMapping(value = "/privacyNickNameCk", method = RequestMethod.POST)
+	public String privacy_nickNameCk(String nickName) throws Exception {
+		MemberVO res = memberDAO.privateNickNameCk(nickName);
+		
+		if(res != null){
+			return "false";
+		}
+		
+		else return "true";
 	}
-}
+	
+	@ResponseBody
+	@RequestMapping(value = "/privacyPassword", method = RequestMethod.POST)
+	public String privacyPassword(MemberVO member) throws Exception {
+		MemberVO res = memberDAO.privacyPassword(member);
+		if(res != null){
+			System.out.println(res);
+			return "true";
+		}		
+		else return "false";
+	}
+	
+	@RequestMapping(value = "/privacyCommit", method = RequestMethod.POST)
+	public String privacyCommit(MemberVO member, HttpSession session, Model model) throws Exception {
+		int res = memberDAO.privacyCommit(member);
+
+		if(res == 1){
+			session.removeAttribute("loginID"); // 있던 세션 삭제
+			MemberVO res2 = memberDAO.idCheck(member.getId()); 
+			session.setAttribute("loginID",res2); //세션 다시 설정하기
+			return "redirect:/page/pageManagement";
+		}
+		
+		else {
+
+			return "redirect:/page/privacyPage";
+		}
+	}
+	
+}//삭제금지

@@ -46,26 +46,37 @@ public class MemberDAOImpl implements MemberDAO {
 		return result;
 	}
 	
-	@Override
-	public int leaveAccount(MemberVO memberVO) throws Exception {
-		MemberMapper mapper = sqlSession.getMapper(MemberMapper.class);
-		int result = mapper.leaveAccount(memberVO);
-		return result;
-	}
+	//private - 닉네임 중복검사 
+			@Override
+			public MemberVO privateNickNameCk(String nickName) throws Exception {
+				MemberMapper mapper = sqlSession.getMapper(MemberMapper.class);
+				
+				MemberVO res = mapper.privateNickName(nickName);
+				
+				return res;
+			}
+		
+		//private - 현재 비밀번호 확인
+			@Override
+			public MemberVO privacyPassword(MemberVO member) {
+				MemberMapper mapper = sqlSession.getMapper(MemberMapper.class);
+				
+				MemberVO res = mapper.privacyPassword(member);
+				
+				return res;
+			}
 
-	@Override
-	public String getmemberPw(String id) throws Exception {
-		MemberMapper mapper = sqlSession.getMapper(MemberMapper.class);
-		String result = mapper.getUserPw(id).getPassword();
-		return result;
-	}
+		//private - 개인정보 수정 처리
+			@Override
+			public int privacyCommit(MemberVO member) {
+				MemberMapper mapper = sqlSession.getMapper(MemberMapper.class);
+				
+				int res = mapper.privacyCommit(member);
+				
+				return res;
+			}
 
-	@Override
-	public int memberInfoUpdate(MemberVO memberVO) throws Exception {
-		MemberMapper mapper = sqlSession.getMapper(MemberMapper.class);	
-		int result = mapper.userInfoUpdate(memberVO);
-		return result;
-	}
+	
 	
 	//이메일 인증 DAO
 	@Override
@@ -90,4 +101,4 @@ public class MemberDAOImpl implements MemberDAO {
 		
 		return result;
 	}
-}
+}//삭제금지

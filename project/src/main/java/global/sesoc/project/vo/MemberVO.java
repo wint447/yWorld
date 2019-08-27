@@ -12,6 +12,7 @@ public class MemberVO {
 	public MemberVO() {
 		super();
 	}
+	
 	public MemberVO(String id, String password, String nickName, String cert, String payment,String authCode) {
 		super();
 		this.id = id;
@@ -54,6 +55,7 @@ public class MemberVO {
 	}
 	
 	
+	
 	public String getAuthCode() {
 		return authCode;
 	}
@@ -76,4 +78,4 @@ public class MemberVO {
 
 	
 	
-}
+}//삭제금지

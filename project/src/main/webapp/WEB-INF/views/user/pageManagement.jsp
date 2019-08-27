@@ -11,24 +11,41 @@
   
 <title>Insert title here</title>
  <!-- Custom fonts for this theme -->
-  <link href="./resources/pageManagementCSS/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="../resources/pageManagementCSS/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
   <!-- Theme CSS -->
-  <link href="./resources/pageManagementCSS/css/freelancer.min.css" rel="stylesheet">
+  <link href="../resources/pageManagementCSS/css/freelancer.min.css" rel="stylesheet">
  
   <script  src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 
 <script>
  $(document).ready(function(){
 	 $('#btn_private').on('click',toPrivate)
+	 $('#btn_logout').on('click',toLogout)
+	 
  });
  
  function toPrivate() {
-	 location.href='toPrivate';
+	 location.href='privacyPage';
  }
-	
+ 
+ function toLogout() {
+	 location.href='logout';
+ }
+ 
+ function toSurvey1(){
+	 location.href='page';
+ } 
+ 
+ function toSurvey2(){
+	 location.href='page2';
+ }
+
+ function toSurvey3(){
+	 location.href='page3';
+ }
 </script>
 <style>
 /* 공백 남기기 위해서 해둠 */
@@ -64,7 +81,22 @@ html,body {
 #header_Menu_button2 {
 		float: right;
 	}
+	
+/* 페이지 추가  */
+.create_page{
+			float: left; 
+			background: #FAFAFA; 
+			margin:125px 45px 35px 35px; 
+			border-radius:20px;
+			box-shadow: 10px 10px 15px #A59C81;
+			cursor: pointer;
+			opacity: 1.5;
+			}
+			
+.create_page:hover { opacity: 0.7; }
 
+
+			
 /**************************
   DEFAULT BOOTSTRAP STYLES
 **************************/
@@ -153,83 +185,17 @@ html,body {
         <button type="button" class="btn btn-primary btn-lg raised" id="btn_private"> 개인정보수정 </button>
         <button type="button" class="btn btn-primary btn-lg raised" id="btn_credit"> 결제 관리 </button>
         <button type="button" class="btn btn-primary btn-lg raised" id="btn_QNA"> Q & A </button>
-        <button type="button" class="btn btn-primary btn-lg raised" id="logout"> 로그아웃 </button>
+        <button type="button" class="btn btn-primary btn-lg raised" id="btn_logout"> 로그아웃 </button>
       </div>
   </div>
   </header>
+<div align="center" style="width: 100%;">
+  <div style="display: inline-block; ">
+  	<div class="create_page" onclick="toSurvey1()"> <img alt="" src="../resources/image/plus_button1.png" style="height: 130px; width: 130px; margin:100px;"></div>
+  	<div class="create_page" onclick="toSurvey2()"> <img alt="" src="../resources/image/plus_button1.png" style="height: 130px; width: 130px; margin:100px;"></div>
+  	<div class="create_page" onclick="toSurvey3()"> <img alt="" src="../resources/image/plus_button1.png" style="height: 130px; width: 130px; margin:100px;"></div>
+  </div>
+</div>
 
-<!-- Portfolio Section -->
-  <section class="page-section portfolio" id="portfolio">
-    <div class="container">
-
-      <!-- Portfolio Section Heading -->
-      <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">PAGE MANAGEMENT</h2>
-
-      <!-- Icon Divider -->
-      <div class="divider-custom">
-        <div class="divider-custom-line"></div>
-        <div class="divider-custom-icon">
-          <i class="fas fa-star"></i>
-        </div>
-        <div class="divider-custom-line"></div>
-      </div>
-
-      <!-- Portfolio Grid Items -->
-      <div class="row">
-
-        <!-- Portfolio Item 1 -->
-        <div class="col-md-6 col-lg-4">
-          <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal1">
-            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-              <div class="portfolio-item-caption-content text-center text-white">
-                <i class="fas fa-plus fa-3x"></i>
-              </div>
-            </div>
-            <img class="img-fluid" src="./resources/pageManagementCSS//img/portfolio/cabin.png" alt="">
-          </div>
-        </div>
-
-        <!-- Portfolio Item 2 -->
-        <div class="col-md-6 col-lg-4">
-          <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal2">
-            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-              <div class="portfolio-item-caption-content text-center text-white">
-                <i class="fas fa-plus fa-3x"></i>
-              </div>
-            </div>
-            <img class="img-fluid" src="./resources/pageManagementCSS//img/portfolio/cake.png" alt="">
-          </div>
-        </div>
-
-        <!-- Portfolio Item 3 -->
-        <div class="col-md-6 col-lg-4">
-          <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal3">
-            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-              <div class="portfolio-item-caption-content text-center text-white">
-                <i class="fas fa-plus fa-3x"></i>
-              </div>
-            </div>
-            <img class="img-fluid" src="./resources/pageManagementCSS//img/portfolio/circus.png" alt="">
-          </div>
-        </div>
-      <!-- /.row -->
-
-    </div>
-  </section>
- 
- 
-   <!-- Bootstrap core JavaScript -->
-  <script src="./resources/pageManagementCSS/vendor/jquery/jquery.min.js"></script>
-  <script src="./resources/pageManagementCSS/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Plugin JavaScript -->
-  <script src="./resources/pageManagementCSS/vendor/jquery-easing/jquery.easing.min.js"></script>
-
-  <!-- Contact Form JavaScript -->
-  <script src="./resources/pageManagementCSS/js/jqBootstrapValidation.js"></script>
-  <script src="./resources/pageManagementCSS/js/contact_me.js"></script>
-
-  <!-- Custom scripts for this template -->
-  <script src="./resources/pageManagementCSS/js/freelancer.min.js"></script>
 </body>
 </html>
