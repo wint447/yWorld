@@ -152,8 +152,9 @@ function start() {
 
 			<div class="container-fluid" style="padding:0px;">
 				<!-- 유저별 페이지 정보 상이, vh는 view-port height를 의미하는 단위로 사용자가 보는 스크린을 100 기준으로 재는 단위이다. vw도 존재한다. -->
-				<iframe src="editpage" name="" style="width:100%; height: 100vh; boarder:none;">iframe이 지원되지 않는 브라우저;</iframe>
-
+				<div id="top" style="position:absolute; left:800px; top:110px; display:none;"></div>
+				<iframe id="iframe" src="editpage" name="" style="width:100%; height: 100vh; boarder:none;">iframe이 지원되지 않는 브라우저;</iframe>
+				<div id='bottom'></div>
 			</div>
 			<!-- /컨텐츠 레이아웃 -->
 			<!-- iframe사용해서 템플릿 코드를 불러오도록 -->
@@ -170,8 +171,20 @@ function start() {
 	<%@ include file="../include/page/page_plugin_js.jsp"%>
 
 	<script>
-</script>
+		// 전역 스코프에 있는 변수의 선언문은 자신이 속한 자바스크립트 파일의 최상단으로, 함수 스코프에 있는 변수의 선언문은 함수 스코프의 최상단으로 끌어올려진다.
+		// 주의해야 할 점은 선언문만 끌어올려지고, 할당문은 그대로 있는 것이다. 때문에 첫 번째 aa에 접근할 때는 aa가 아직 초기화되지 않았으므로 undefined이 출력된다.
+		/* iframe을 담을 변수.*/
 
+		// jQuery 객체의 가장 중요한 특성은 암시적인 반복을 수행한다는 것이다. DOM과 다르게 jQuery 객체의 메소드를 실행하면 선택된 엘리먼트 전체에 대해서 동시에 작업이 처리된다.
+		// 암시적 반복은 값을 설정할 때만 동작한다. 값을 가져올 때는 선택된 엘리먼트 중 첫번째에 대한 값만을 반환한다. 이에 대한 내용은 아래에서 살펴본다.
+
+		/*
+
+		var iframe = document.getElementById('editpage');
+		var iframedoc = iframe.contentWindow.document;
+		 */
+
+		// $('#iframe').contents().find('#mainNav').html();
+	</script>
 </body>
-
 </html>

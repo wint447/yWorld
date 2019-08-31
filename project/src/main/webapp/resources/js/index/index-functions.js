@@ -4,8 +4,6 @@ $(document).ready(function () {
 	$('#user_password').on('keyup',pwCheck);//pw형식확인
 	$('#user_password_again').on('keyup',pwAgain);//PW일치하는지
 	$('#user_name').on('keyup',nameCheck);//닉네임 중복확인
-	
-	
 	$('#signin-select-button').trigger('click');
 })//ready();
 
@@ -14,17 +12,17 @@ $(document).ready(function () {
 function LoginBlankCheck(){
 	var id = document.getElementById('your_email');
 	var password = document.getElementById('user_password');
-	
+
 	if(id.value == ''){
 		alert('반드시 이메일을 입력해주세요.');
 		return false;
 	}
-	
+
 	if(password.value == ''){
 		alert('반드시 비밀번호를 입력해주세요')
 		return false;
 	}
-	
+
 		return true;
 }
 
@@ -36,17 +34,17 @@ function blankCheck(){
 	var password = document.getElementById('user_password');
 	var passwordAgain = document.getElementById('user_password_again');
 	var nickName = document.getElementById('user_name');
-	
+
 	if(id.value == ''){
 		alert('반드시 이메일을 입력해주세요.');
 		return false;
 	}
-	
+
 	if(password.value == ''){
 		alert('반드시 비밀번호를 입력해주세요')
 		return false;
 	}
-	
+
 	if(passwordAgain.value == ''){
 		alert('반드시 확인 비밀번호를 입력해주세요')
 		return false;
@@ -69,7 +67,7 @@ function checking(){
 	$('#pwCheckAgain').css('transition', '0.3s');
 	$('#nickCheck').hide(0);//nickCheck
 	$('#nickCheck').css('transition', '0.3s');
-	
+
 }
 
 
@@ -77,13 +75,13 @@ function checking(){
 function nameCheck(){
 
 	var name = $('#user_name').val();
-	
+
 	if(name.length==0){
 		$('#nickCheck').fadeOut(500);
 		return;
 	}
 		$('#nickCheck').fadeIn(500);
-	
+
 	if (name.length >= 1) {
 		$.ajax({
 			url:'user/nameCheck',
@@ -91,16 +89,16 @@ function nameCheck(){
 			data: {searchName:name},
 			dataType:'text',
 			success: function(s){
-				
+
 				if(s == 'true'){
 					$('#nickCheck').html('사용가능한 닉네임 입니다');
 					$('#nickCheck').css('color', 'green');
 				}
 				if(s == 'false'){
-					$('#nickCheck').html('이미 사용중인  닉네임 입니다');	
+					$('#nickCheck').html('이미 사용중인  닉네임 입니다');
 					$('#nickCheck').css('color', 'red');
 				}
-				
+
 			},
 			error: function(e){
 			}
@@ -111,18 +109,18 @@ function nameCheck(){
 
 //------------<아이디 형식&중복 확인>----------------------------------------
 function idCheck(){
-		
+
 		var email =$('#your_email').val();
 		var regExp= /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
-		
+
 		if(email.length==0){
 			$('#idCheck').fadeOut(500);
 			return;
 		}
 			$('#idCheck').fadeIn(500);
-			
+
 		if(email.match(regExp)){
-			
+
 			if (email.length >= 3 ) {
 				$.ajax({
 					url:'user/idCheck',
@@ -130,25 +128,25 @@ function idCheck(){
 					data: {searchID:email},
 					dataType:'text',
 					success: function(s){
-						
+
 						if(s == 'true'){
 							$('#idCheck').html('사용가능한 email 입니다');
 							$('#idCheck').css('color', 'green');
 						}
 						if(s == 'false'){
-							$('#idCheck').html('이미 사용중인  email 입니다');	
+							$('#idCheck').html('이미 사용중인  email 입니다');
 							$('#idCheck').css('color', 'red');
 						}
-						
+
 					},
 					error: function(e){
-						
+
 					}
 				});
-				
+
 			};
 		}else{
-			$('#idCheck').html('올바르지 않은  email 형식 입니다');	
+			$('#idCheck').html('올바르지 않은  email 형식 입니다');
 			$('#idCheck').css('color', 'red');
 		}
 };
@@ -168,7 +166,7 @@ function pwCheck(){
 	}
 	else {
 		$('#pwCheck').html('8~16자 사이,영문 &특수문자를 포함해야 합니다');
-		$('#pwCheck').css('color', 'red');		
+		$('#pwCheck').css('color', 'red');
 	}
 }
 
@@ -178,25 +176,25 @@ function pwCheck(){
 function pwAgain(){
 	var password = $('#user_password').val();
 	var passwordAgain = $('#user_password_again').val();
-	
+
 	if(passwordAgain.length==0){
 		$('#pwCheckAgain').fadeOut(500);
 		return;
 	}
 		$('#pwCheckAgain').fadeIn(500);
-	
-	
+
+
 	if (password == passwordAgain) {
 		$('#pwCheckAgain').html('일치합니다');
 		$('#pwCheckAgain').css('color', 'green');
-	}else {		
+	}else {
 		$('#pwCheckAgain').html('일치하지않습니다');
 		$('#pwCheckAgain').css('color', 'red');
 	}
 }
 
 
-//--------<로그인 버튼시>------------------------------- 
+//--------<로그인 버튼시>-------------------------------
 function goToLogin() {
 	var loginButton = "login-button";
 	var signinButton = "signin-button";
@@ -232,7 +230,7 @@ function goToSignIn() {
 /*function login() {
 
 	event.preventDefault();
-n    
+n
 	// 이미 로그인 창이 실행 중인 경우
 	if($("[id=navigation]").find("[class*=col]").length>2) {
 
@@ -276,7 +274,7 @@ n
 				+'</div>'
 			);
 		}
-	
+
 	}
 }
 */

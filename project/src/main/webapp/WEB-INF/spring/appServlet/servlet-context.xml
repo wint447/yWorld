@@ -8,7 +8,7 @@
 		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
 
 	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
-	
+
 	<!-- Enables the Spring MVC @Controller programming model -->
 	<annotation-driven />
 
@@ -16,6 +16,7 @@
 	<resources mapping="/resources/**" location="/resources/" />
 	<resources mapping="/webjars/**" location="/webjars/" />
 	
+
 	<!-- 경로가 어딘지를 모르겠어서 일단 지움
     <mvc:resources mapping="/user/**" location="/resources/upload/user/"/>
 	 -->
@@ -25,6 +26,6 @@
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
-	
+
 	<context:component-scan base-package="global.sesoc.project" />
 </beans:beans>

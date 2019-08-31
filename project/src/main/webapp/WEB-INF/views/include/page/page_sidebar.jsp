@@ -35,9 +35,9 @@
 			기본 요소 추가</a>
 		<!-- onclick="Add_PlainText();" -->
 		<div id="primary-components" class="collapse list-group list-group-flush">
-			<a id="text" href="#" onmousedown=""
+			<a id="text" href="#" onclick="insertText();"
 				class="list-group-item list-group-item-action bg-white">텍스트</a>
-			<a href="#" onclick=""
+			<a href="#" onclick="insertText();"
 				class="list-group-item list-group-item-action bg-white">이미지</a>
 			<a href="#" onclick=""
 				class="list-group-item list-group-item-action bg-white">상자</a>

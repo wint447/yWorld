@@ -55,4 +55,9 @@
 	<!-- CSS 불러오기 -->
 	<link href="${path}/resources/css/index/index.css" rel="stylesheet">
 
+	<!-- ckeditor -->
+	<script src="${path}/resources/libs/ckeditor/ckeditor.js"></script>
+	<meta name="ckeditor-sample-name" content="Shared-Space plugin">
+	<meta name="ckeditor-sample-group" content="Plugins">
+	<meta name="ckeditor-sample-description" content="Having the toolbar and the bottom bar spaces shared by different editor instances.">
 </head>
