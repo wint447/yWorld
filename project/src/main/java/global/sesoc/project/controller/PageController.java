@@ -56,4 +56,10 @@ public class PageController {
 				
 				return "redirect:/";
 			}
+			
+	@RequestMapping(value = "/editpage", method = RequestMethod.GET)
+	public String editPage() {
+		logger.debug("이동....");
+		return "include/page/editpage";
+	}
 }//삭제금지
