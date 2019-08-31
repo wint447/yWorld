@@ -116,7 +116,7 @@ function start() {
 			<h style="margin-left: 30px;font-size:20px;">사이트의 이름은 무엇인가요?</h>
 			<br> <input type="text" id="Stitle"
 				style="margin-left: 150px; width: 600px; height: 55px; font-size: 40px; margin-top: 15px;"><br>
-			<img src="resources/image/img/ar1.png"
+			<img src="../resources/image/img/ar1.png"
 				style="width: 80px; height: 80px; margin-left: 850px; cursor: pointer;"
 				id="nextp">
 		</form>
